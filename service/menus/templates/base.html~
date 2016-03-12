@@ -1,0 +1,23 @@
+<!doctype html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <title>Aneta Please Order the Food{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/media/style.css" type="text/css" />
+    <script type="text/javascript" src="/media/jquery.js"></script>
+    {% block external %}{% endblock %}
+  </head>
+  <body>
+   <div>
+      {{ user }}
+      {% if user.is_anonymous %}
+      <a href="{% url 'django.contrib.auth.views.login' %}">login</a>
+      {% else %}
+      <a href="{% url 'django.contrib.auth.views.logout' %}">logout</a>
+      {% endif %}
+    </div>
+    {% block header %}{% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+  </body>
+</html>
